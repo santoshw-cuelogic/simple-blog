@@ -1,5 +1,9 @@
-<h1>New article</h1>
+<ul class="breadcrumb">
+  <li>
+    <p>YOU ARE HERE</p>
+  </li>
+  <li><span class="prev-link" data-no-turbolink><%= link_to 'Blogs'.html_safe, articles_path %></span></li>
+  <li><span class="active"> Add Post</span></li>
+</ul>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', articles_path %>

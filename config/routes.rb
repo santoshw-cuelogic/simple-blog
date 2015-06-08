@@ -1,4 +1,6 @@
 Blogit::Application.routes.draw do
+  resources :blogs
+
   resources :comments
 
   resources :articles

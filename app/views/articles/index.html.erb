@@ -1,46 +1,48 @@
-<div class="col-lg-8>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Latest Articles </h3>
-    </div>
-    <div class="panel-body">
-      <div class="list-group">
-        <a href="#" class="list-group-item">
-          <span class="badge">just now</span>
-          <i class="fa fa-fw fa-calendar"></i> Calendar updated
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">4 minutes ago</span>
-          <i class="fa fa-fw fa-comment"></i> Commented on a post
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">23 minutes ago</span>
-          <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">46 minutes ago</span>
-          <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">1 hour ago</span>
-          <i class="fa fa-fw fa-user"></i> A new user has been added
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">2 hours ago</span>
-          <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">yesterday</span>
-          <i class="fa fa-fw fa-globe"></i> Saved the world
-        </a>
-        <a href="#" class="list-group-item">
-          <span class="badge">two days ago</span>
-          <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-        </a>
-      </div>
-      <div class="text-right">
-        <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
+<ul class="breadcrumb">
+  <li><p>YOU ARE HERE</p></li>
+  <li><span class="prev-link" data-no-turbolink><%= link_to 'Blogs'.html_safe, articles_path %></span></li>
+</ul>
+<div class="panel-heading">
+  <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Latest Articles </h3>
+</div>
+<div class="row" data-no-turbolink>
+  <div class="col-md-3">
+    <%= link_to 'New post', new_article_path, class: "btn btn-primary newempl-btn", :style => "text-align:right; margin-left: 12px;" %>
   </div>
+</div>
+<div class="span12">
+<div class="grid simple ">
+<div class="grid-body ">
+<div role="grid" class="dataTables_wrapper form-inline" id="example2_wrapper">
+
+<table id="id_leaves_list_table" class="table table-striped dataTable" aria-describedby="example2_info">
+<thead>
+<% unless @articles.blank? %>
+<tr role="row">
+<th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 100px;" aria-label="Rendering engine: activate to sort column ascending">Subject</th>
+<th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 70px;" aria-label="Rendering engine: activate to sort column ascending">Details</th>
+<th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 70px;text-align: left; " aria-label="Rendering engine: activate to sort column ascending">Status</th>
+<th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 120px;" aria-label="Rendering engine: activate to sort column ascending">Posted At</th>
+<th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 120px;" aria-label="Browser: activate to sort column ascending">Action</th>
+</tr>
+</thead>
+<tbody role="alert" aria-live="polite" aria-relevant="all" id="id_user_tbody">
+<% @articles.each do |article| %>
+<tr class="gradeX odd">
+<td class=" "><%= article.subject %></td>
+<td class=" " style="background-color: <%= article.description %>"></td>
+<td class=" "><%= article.status %></td>
+  <td class=" "><%= article.posted_at %></td>
+<td data-no-turbolink>
+  <%= link_to '<i title="Edit Leave Type" class="fa fa-edit"></i>'.html_safe, edit_article_path(article) %>
+  <%= link_to '<i title="Delete Leave Type" class="fa fa-trash-o"></i>'.html_safe, article, method: :delete, data: { confirm: 'Are you sure?' } %>
+</td>
+</tr>
+<% end %>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
