@@ -29,7 +29,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 #### Features Added in Application are: #####
 
-* Used DRY concept so that we can use same search method in article and comment.
+* Used DRY concept eg: In article and comment model used common search method.
 
 * Used TDD before wrting business logic and also setup spec configuration in application.rb
 
@@ -45,4 +45,8 @@ Please feel free to use a different markup language if you do not plan to run
 
 * Avoided row sql in query also have not written unwanted code.
 
+* Used user friendly UI like ckeditor to add post and to comment on post.
+
 * Fuctional and unit testing has done.
+
+* Used .gitignore file to avoide unwanted code pushing on github.
