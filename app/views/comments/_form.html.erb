@@ -1,37 +1,42 @@
-<%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-title no-border"></div>
+  <%= form_for @comment, :html=>{:class=>"form-no-horizontal-spacing class_date_validation"} do |f| %>
+  <div class="grid-body no-border">
+    <div id="errorbox" class="error_box" style="margin-left: 25px;">
+      <%= render "shared/error_messages", :object=>@comment %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :article_id %><br>
-    <%= f.number_field :article_id %>
-  </div>
-  <div class="field">
-    <%= f.label :guest_name %><br>
-    <%= f.text_field :guest_name %>
-  </div>
-  <div class="field">
-    <%= f.label :guest_email %><br>
-    <%= f.text_field :guest_email %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
-  </div>
-  <div class="field">
-    <%= f.label :comment_date %><br>
-    <%= f.date_select :comment_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <h4 class="semi-bold">Comment</h4>
+    <div class="form-row form-group">
+      <div class="row ">
+        <div class="col-md-6">
+          <%= f.hidden_field :article_id, value: params[:article_id]%>
+          <label class="form-label">Name<span class="asterik">*</span></label>
+          <%= f.text_field :guest_name, :autofocus => true, :required=>true, :class=>"form-control"%>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">E-Mail<span class="asterik">*</span></label>
+          <%= f.text_field :guest_email, :autofocus => true, :required=>true, :class=>"form-control"%>
+        </div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Comment<span class="asterik">*</span></label>
+          <%= f.text_area :comment, :autofocus => true, :required=>true, :class=>"form-control"%>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions" data-no-turbolink>
+      <div class="pull-right">
+    <%= f.submit ["new", "create"].include?(params[:action]) ? 'Comment' : 'Update', class: "btn btn-success btn-cons", data: { disable_with: 'Saving...' } %>
+        <%= link_to 'Cancel', comments_path, class: "btn btn-white btn-cons" %>
+        </div>
+        </div>
+        </div>
+    <% end %>
+    </div>
+    </div>
+    </div>

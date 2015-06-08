@@ -1,5 +1,34 @@
-<h1>New comment</h1>
+<ul class="breadcrumb">
+  <li><p>YOU ARE HERE</p></li>
+  <li><span class="prev-link" data-no-turbolink><%= link_to 'Comment'.html_safe, comments_path %></span></li>
+</ul>
+<div class="panel-heading">
+  <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Latest Article </h3>
+</div>
 
-<%= render 'form' %>
+<%if @article.present?%>
+<div class="panel-body">
+  <div class="list-group">
+    <a href="#" class="list-group-item">
+      <span class="badge"> <%= @article.posted_at.strftime("%A, %d %b %Y") rescue nil%></span>
+      <i class="fa fa-fw"></i> <h2><%= @article.subject %></h2>
+      <br/>
+      <%= @article.description %>
+    </a>
+  </div>
+<%end%>
 
-<%= link_to 'Back', comments_path %>
+<%if @article.present? %>
+  <div class="list-group">
+    <a href="#" class="list-group-item">
+      <i class="fa fa-fw"></i> <h3>Comments</h3>
+      <% @article.comments.each do|comment|  %>
+      <%= comment.comment%></br>
+      <% end %>
+    </a>
+  </div>
+  <%end%>
+
+  <%= render 'form' %>
+</div>
+

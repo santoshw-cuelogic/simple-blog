@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% object.errors.each do |key, val| %>
+            <li><%= val %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+

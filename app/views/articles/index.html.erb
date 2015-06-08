@@ -30,9 +30,9 @@
 <% @articles.each do |article| %>
 <tr class="gradeX odd">
 <td class=" "><%= article.subject %></td>
-<td class=" " style="background-color: <%= article.description %>"></td>
-<td class=" "><%= article.status %></td>
-  <td class=" "><%= article.posted_at %></td>
+<td class=" "><%= article.description %></td>
+<td class=" "><%= article.status? ? "Published" : "Unpublished" %></td>
+<td class=" "><%= article.posted_at.strftime("%A, %d %b %Y") rescue nil%></td>
 <td data-no-turbolink>
   <%= link_to '<i title="Edit Leave Type" class="fa fa-edit"></i>'.html_safe, edit_article_path(article) %>
   <%= link_to '<i title="Delete Leave Type" class="fa fa-trash-o"></i>'.html_safe, article, method: :delete, data: { confirm: 'Are you sure?' } %>

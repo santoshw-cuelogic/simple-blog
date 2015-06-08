@@ -2,43 +2,37 @@
   <div class="col-md-12">
     <div class="grid simple">
       <div class="grid-title no-border"></div>
-      <%= form_for @article, :html=>{:class=>"form-no-horizontal-spacing class_date_validation"} do |f| %>
-          <div class="grid-body no-border">
-            <h4 class="semi-bold">Blog Post Information</h4>
-            <div class="form-row form-group">
-              <div class="row ">
-                <div class="col-md-6">
-                  <label class="form-label">Subject<span class="asterik">*</span></label>
-                  <%= f.text_field :subject, :autofocus => true, :required=>true, :class=>"form-control"%>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Status</label>
-                  <%= f.check_box :status, :class=>"form-control", :required=>true %>
-                </div>
-              </div>
-            </div>
-            <div class="form-row form-group">
-              <div class="row">
-                <div class="col-md-6">
-                  <label class="form-label">Description<span class="asterik">*</span></label>
-                  <textarea name="description" cols="40"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="form-actions" data-no-turbolink>
-              <div class="pull-right">
-                <%= f.submit ["new", "create"].include?(params[:action]) ? 'Save' : 'Update', class: "btn btn-success btn-cons", data: { disable_with: 'Saving...' } %>
-                    <%= link_to 'Cancel', articles_path, class: "btn btn-white btn-cons" %>
-                </div>
-                </div>
-                </div>
-            <% end %>
-            </div>
-            </div>
-            </div>
-    <div id="sample">
-      <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
-        //<![CDATA[
-        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-        //]]>
-    </script>
+  <%= form_for @article, :html=>{:class=>"form-no-horizontal-spacing class_date_validation"} do |f| %>
+  <div class="grid-body no-border">
+    <h4 class="semi-bold">Blog Post Information</h4>
+    <div class="form-row form-group">
+      <div class="row ">
+        <div class="col-md-6">
+          <label class="form-label">Subject<span class="asterik">*</span></label>
+          <%= f.text_field :subject, :autofocus => true, :required=>true, :class=>"form-control"%>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Publish</label>
+          <%= f.check_box :status%>
+        </div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label">Description<span class="asterik">*</span></label>
+          <%= f.text_area :description, :autofocus => true, :required=>true, :class=>"form-control"%>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions" data-no-turbolink>
+      <div class="pull-right">
+        <%= f.submit ["new", "create"].include?(params[:action]) ? 'Save' : 'Update', class: "btn btn-success btn-cons", data: { disable_with: 'Saving...' } %>
+            <%= link_to 'Cancel', articles_path, class: "btn btn-white btn-cons" %>
+        </div>
+        </div>
+        </div>
+    <% end %>
+    </div>
+    </div>
+    </div>
