@@ -1,0 +1,94 @@
+.modal{ overflow-y:hidden;}
+
+#new_contact .control-label{
+    text-align: left;
+}
+
+.modal .modal-body
+   {
+       max-height: 500px;
+       overflow-y: hidden;
+   }
+.modal .modal-body form
+{
+    width: 95%;
+}
+
+.per_page_select{
+    width: 87%;
+    margin-left: 12px;
+}
+
+
+.scrollable{
+    overflow-x: scroll;
+}
+.select_country select{
+    width: 420px;
+}
+.select_custom_width select{
+    width: 277px;
+}
+.select_mailing_list select{
+    width: 458px;
+}
+#s2id_contact_country_code{
+
+    width: 215px;
+}
+.select_custom_width input{
+    width: 277px;
+}
+
+#seeMoreRecords{
+    margin-top:-5px;
+}
+#seeMoreUSRecords{
+    margin-top:-5px;
+}
+
+#master_data{
+
+}
+#unsubscribe_data{
+
+}
+
+.search_form{
+    margin-right:16px;
+
+}
+.contacts_control{
+    height: 30px;
+}
+.contacts_control .col-md-2{
+    margin-right:-4%;
+}
+.large_text b{
+    font-size: 115%;
+}
+.error_class{
+    margin-left: 25%;
+    visibility:hidden;
+}
+.empty_notice{
+        margin-top: 3%;
+        padding: 1%;
+        background-color: #ecf0f2;
+}
+
+.add_contact a{
+    margin-left: 42px;
+}
+.follow_up table {
+    table-layout:fixed;
+}
+
+.div-table-content {
+    height:150px;
+    overflow-y:auto;
+}
+
+.panel_follow_up{
+    border-color: rgba(29, 8, 41, 0.10);
+}

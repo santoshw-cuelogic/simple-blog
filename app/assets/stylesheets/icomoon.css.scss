@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'icomoon';
+  src: asset-url('icomoon.eot?-2940zp');
+  src: asset-url('icomoon.eot?#iefix-2940zp') format('embedded-opentype'),
+  asset-url('icomoon.woff?-2940zp') format('woff'),
+  asset-url('icomoon.ttf?-2940zp') format('truetype'),
+  asset-url('icomoon.svg?-2940zp#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-access_right:before {
+  content: "\e600";
+}
+
+.icon-add_employee_progression:before {
+  content: "\e601";
+}
+
+.icon-add_history_employee_:before {
+  content: "\e602";
+}
+
+.icon-add_new_employee:before {
+  content: "\e603";
+}
+
+.icon-client:before {
+  content: "\e604";
+}
+
+.icon-download_employee_progression:before {
+  content: "\e605";
+}
+
+.icon-download_history_employee:before {
+  content: "\e606";
+}
+
+.icon-employee_progression:before {
+  content: "\e607";
+}
+
+.icon-employee_status_report:before {
+  content: "\e608";
+}
+
+.icon-employee-history-details:before {
+  content: "\e609";
+}
+
+.icon-Employees:before {
+  content: "\e60a";
+}
+
+.icon-export_details:before {
+  content: "\e60b";
+}
+
+.icon-import_details:before {
+  content: "\e60c";
+}
+
+.icon-leave:before {
+  content: "\e60d";
+}
+
+.icon-leave-approved:before {
+  content: "\e60e";
+}
+
+.icon-Reports:before {
+  content: "\e60f";
+}
+
+.icon-upload_employee_progression:before {
+  content: "\e610";
+}
+
+.icon-upload_history_employee:before {
+  content: "\e611";
+}
+
+.icon-upload_new_employee1:before {
+  content: "\e612";
+}

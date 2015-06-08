@@ -1,33 +1,46 @@
-<h1>Listing articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Subject</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Posted at</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.subject %></td>
-        <td><%= article.description %></td>
-        <td><%= article.status %></td>
-        <td><%= article.posted_at %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+<div class="col-lg-8>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Latest Articles </h3>
+    </div>
+    <div class="panel-body">
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <span class="badge">just now</span>
+          <i class="fa fa-fw fa-calendar"></i> Calendar updated
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">4 minutes ago</span>
+          <i class="fa fa-fw fa-comment"></i> Commented on a post
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">23 minutes ago</span>
+          <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">46 minutes ago</span>
+          <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">1 hour ago</span>
+          <i class="fa fa-fw fa-user"></i> A new user has been added
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">2 hours ago</span>
+          <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">yesterday</span>
+          <i class="fa fa-fw fa-globe"></i> Saved the world
+        </a>
+        <a href="#" class="list-group-item">
+          <span class="badge">two days ago</span>
+          <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+        </a>
+      </div>
+      <div class="text-right">
+        <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
