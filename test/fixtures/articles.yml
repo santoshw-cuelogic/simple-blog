@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject: MyString
+  description: MyText
+  status: false
+  posted_at: 2015-06-08
+
+two:
+  subject: MyString
+  description: MyText
+  status: false
+  posted_at: 2015-06-08
