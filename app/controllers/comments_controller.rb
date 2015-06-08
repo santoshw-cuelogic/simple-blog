@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @articles = Article.published.order(created_at: :desc)
+    @articles = Comment.search.published
   end
 
   # GET /comments/1
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    @article = Article.where(id: params[:article_id]).first
+    @article = Article.find(params[:article_id])
   end
 
   # GET /comments/1/edit

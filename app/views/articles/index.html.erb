@@ -5,14 +5,15 @@
 <div class="panel-heading">
   <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Latest Articles </h3>
 </div>
-<div class="row" data-no-turbolink>
-  <div class="col-md-3">
-    <%= link_to 'New post', new_article_path, class: "btn btn-primary newempl-btn", :style => "text-align:right; margin-left: 12px;" %>
-  </div>
-</div>
+
 <div class="span12">
 <div class="grid simple ">
 <div class="grid-body ">
+  <div class="row" data-no-turbolink>
+    <div class="col-md-12">
+      <%= link_to 'New post', new_article_path, class: "btn btn-primary newempl-btn"%>
+    </div>
+  </div><br/><br/>
 <div role="grid" class="dataTables_wrapper form-inline" id="example2_wrapper">
 
 <table id="id_leaves_list_table" class="table table-striped dataTable" aria-describedby="example2_info">
@@ -30,7 +31,7 @@
 <% @articles.each do |article| %>
 <tr class="gradeX odd">
 <td class=" "><%= article.subject %></td>
-<td class=" "><%= article.description %></td>
+<td class=" "><%= article.description.html_safe rescue nil %></td>
 <td class=" "><%= article.status? ? "Published" : "Unpublished" %></td>
 <td class=" "><%= article.posted_at.strftime("%A, %d %b %Y") rescue nil%></td>
 <td data-no-turbolink>

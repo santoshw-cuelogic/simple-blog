@@ -13,7 +13,7 @@
       <span class="badge"> <%= @article.posted_at.strftime("%A, %d %b %Y") rescue nil%></span>
       <i class="fa fa-fw"></i> <h2><%= @article.subject %></h2>
       <br/>
-      <%= @article.description %>
+      <%= @article.description.html_safe rescue nil %>
     </a>
   </div>
 <%end%>
@@ -23,7 +23,7 @@
     <a href="#" class="list-group-item">
       <i class="fa fa-fw"></i> <h3>Comments</h3>
       <% @article.comments.each do|comment|  %>
-      <%= comment.comment%></br>
+      <%= comment.comment.html_safe rescue nil%></br>
       <% end %>
     </a>
   </div>

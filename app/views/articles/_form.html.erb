@@ -13,15 +13,16 @@
         </div>
         <div class="col-md-6">
           <label class="form-label">Publish</label>
-          <%= f.check_box :status%>
+          <%= f.check_box :status , :class=>"form-control"%>
         </div>
       </div>
     </div>
     <div class="form-row form-group">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <label class="form-label">Description<span class="asterik">*</span></label>
-          <%= f.text_area :description, :autofocus => true, :required=>true, :class=>"form-control"%>
+          <%#= f.text_area :description, :autofocus => true, :required=>true, :class=>"form-control"%>
+          <%= f.text_area :description, :class => 'ckeditor'%>
         </div>
       </div>
     </div>

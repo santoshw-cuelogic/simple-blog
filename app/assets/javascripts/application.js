@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce
+//= require ckeditor-jquery
 //= require_tree .
+
+$('.ckeditor').ckeditor({
+    // optional config
+});

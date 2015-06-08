@@ -26,3 +26,23 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+#### Features Added in Application are: #####
+
+* Used DRY concept so that we can use same search method in article and comment.
+
+* Used TDD before wrting business logic and also setup spec configuration in application.rb
+
+* Bussiness logic written in model only.
+
+* Gems added group wise so thta it will reduce load time.
+
+* Also added common Resource contoller so that no need to write CRUD Method code in controller but we can override it.
+
+* Also Added limited and required assets and js code shared commonly wherever needed.
+
+* Written scope so that we can use smoll syntaxfor fetching query.
+
+* Avoided row sql in query also have not written unwanted code.
+
+* Fuctional and unit testing has done.
