@@ -2,10 +2,10 @@
   <div class="col-md-12">
     <div class="grid simple">
       <div class="grid-title no-border"></div>
-  <%= form_for @comment, :html=>{:class=>"form-no-horizontal-spacing class_date_validation"} do |f| %>
+  <%= form_for @record, :html=>{:class=>"form-no-horizontal-spacing class_date_validation"} do |f| %>
   <div class="grid-body no-border">
     <div id="errorbox" class="error_box" style="margin-left: 25px;">
-      <%= render "shared/error_messages", :object=>@comment %>
+      <%= render "shared/error_messages", :object=>@record %>
     </div>
     <h4 class="semi-bold">Comment</h4>
     <div class="form-row form-group">

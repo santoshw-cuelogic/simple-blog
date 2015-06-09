@@ -11,7 +11,7 @@ class Comment < ActiveRecord::Base
     self.comment_date = Date.today
   end
 
-  def self.search
-    Article.search.published
+  def self.search(params)
+    Article.search(params).published
   end
 end

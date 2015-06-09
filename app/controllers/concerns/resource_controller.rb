@@ -1,6 +1,7 @@
 class ResourceController < ApplicationController
   extend ActiveSupport::Concern
 
+  before_action :set_record, only: [:show, :edit, :update, :destroy]
   before_filter :set_properties
   before_filter :get_record, :only => [:show, :edit, :update, :destroy]
   before_filter :parse_filters, :only => :index
@@ -9,19 +10,24 @@ class ResourceController < ApplicationController
   include ApplicationHelper
 
   def index
-    @record_scope = resource_class.search
+    @record_scope = resource_class.search(params)
+  end
+
+  # GET /articles/new
+  def new
+    @record = resource_class.new
   end
 
   def create
-    @record ||= resource_class.new(resource_params)
+    @record = resource_class.new(resource_params)
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to resource_display_path_name(@record.class), notice: "#{resource_display_name(@record.class)} was successfully created." }
+        format.html { redirect_to :back, notice: "#{resource_display_name(@record.class)}  was successfully created." }
         format.json { render action: 'show', status: :created, location: @record }
       else
-        format.js { render :action => "new" }
-        format.json { render json: request.headers['X-ExternalCall'] ? @record.errors : @record.errors.full_messages.join(","), status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,11 +44,11 @@ class ResourceController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(resource_params)
-        format.html { redirect_to resource_display_path_name(@record.class), notice: "#{resource_display_name(@record.class)} was successfully updated." }
-        format.json { render json: request.headers['X-ExternalCall'] ? @record : "#{resource_display_name(@record.class)} was successfully updated." }
+        format.html { redirect_to :back, notice: "#{resource_display_name(@record.class)} was successfully updated." }
+        format.json { head :no_content }
       else
         format.js { render :action => "new" }
-        format.json { render json: request.headers['X-ExternalCall'] ? @record.errors : @record.errors.full_messages.join(","), status: :unprocessable_entity }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -130,7 +136,12 @@ class ResourceController < ApplicationController
   # just a good pattern since you'll be able to reuse the same permit
   # list between create and update. Also, you can specialize this method
   # with per-user checking of permissible attributes.
-  def resource_params
+  # def resource_params
+  # end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_record
+    @record = resource_class.find(params[:id])
   end
 
   def parse_filters

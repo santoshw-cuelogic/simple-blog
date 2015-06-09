@@ -10,7 +10,7 @@
     <div class="grid-body ">
       <div role="grid" class="dataTables_wrapper form-inline" id="example2_wrapper">
 
-      <%@articles.each do|article|%>
+      <%@record_scope.each do|article|%>
         <div class="post-preview">
           <h2 class="post-title"><%= link_to article.subject, new_comment_path(article_id: article.id) %></h2>
           <p class="post-meta">Posted by <a href="#">Start Bootstrap</a>  <%= article.posted_at.strftime("%A, %d %b %Y") rescue nil%></p>
