@@ -39,8 +39,13 @@ group :test do
 gem 'rspec-rails'
 gem 'email_spec'
 gem 'fabrication-rails'
+gem 'capybara'
+gem 'cucumber-rails', require: false
+gem 'selenium-webdriver'
 
 end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
