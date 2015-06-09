@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   validates :description,  length:{minimum:2, maximum:2000}
   validates :subject, uniqueness: true
 
+  default_scope lambda{ order(created_at: :desc) }
   scope :published, ->{where(status: true)}
 
 
@@ -14,10 +15,6 @@ class Article < ActiveRecord::Base
 
   def set_posted_at
     self.posted_at = Date.today
-  end
-
-  def self.search
-    Article.all.order(created_at: :desc)
   end
 
 end
