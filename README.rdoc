@@ -33,7 +33,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 * Used DRY concept eg: In article and comment model used common search method.
 
-* Used TDD before wrting business logic and also setup spec configuration in application.rb
+* Used BDD & TDD before wrting business logic and also setup spec configuration in application.rb
 
 * Bussiness logic written in model only.
 
