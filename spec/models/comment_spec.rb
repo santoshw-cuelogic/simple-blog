@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Comment do
+RSpec.describe Comment, type: :model do
 
   describe "Associations" do
     it {
@@ -17,6 +17,3 @@ describe Comment do
   end
 
 end
-
-
-

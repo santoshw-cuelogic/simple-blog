@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   validates :subject, :description, presence: true
   validates :subject,  length:{minimum:2, maximum:100}
   validates :description,  length:{minimum:2, maximum:2000}
+  validates :subject, uniqueness: true
 
   scope :published, ->{where(status: true)}
 
