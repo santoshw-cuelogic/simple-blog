@@ -16,6 +16,24 @@ RSpec.describe Article, type: :model do
     it { is_expected.to respond_to(:description) }
   end
 
+  describe "Validate blank data" do
+    let(:article) { Fabricate(:article, subject: "", description: "xyz") }
+    context "should not allow" do
+      it "blank #subject" do
+        article.valid?
+        expect(article.errors[:subject]).to include("can't be blank")
+      end
+    end
+
+    let(:article) { Fabricate(:article, subject: "ddd", description: "") }
+    context "should not allow" do
+      it "blank #description" do
+        article.valid?
+        expect(article.errors[:description]).to include("can't be blank")
+      end
+    end
+  end
+
   describe "Validate for duplication" do
     let(:article) { Fabricate(:article, subject: "dup", description: "xyz") }
     let(:article1) { Fabricate(:article, subject: "dup", description: "xyz") }
