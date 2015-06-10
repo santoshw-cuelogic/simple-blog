@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+
   has_many :comments
 
   validates :subject, :description, presence: true

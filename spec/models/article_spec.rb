@@ -3,11 +3,7 @@ require 'spec_helper'
 RSpec.describe Article, type: :model do
 
   describe "Associations" do
-    it {
-      should {
-        have_many :comments
-      }
-    }
+    it { should { have_many :comments } }
   end
 
 
@@ -16,18 +12,28 @@ RSpec.describe Article, type: :model do
     it { is_expected.to respond_to(:description) }
   end
 
+  describe "#set_posted_at" do
+    context "should have current" do
+      article = Fabricate.build(:article, subject: "dddq", description: "xyz", posted_at: "")
+      it "posted_at date" do
+        article.set_posted_at
+        expect(article.posted_at).to eq(Date.today)
+      end
+    end
+  end
+
   describe "Validate blank data" do
-    let(:article) { Fabricate(:article, subject: "", description: "xyz") }
     context "should not allow" do
-      it "blank #subject" do
+      article = Fabricate.build(:article, subject: "", description: "xyz")
+      it "blank subject" do
         article.valid?
         expect(article.errors[:subject]).to include("can't be blank")
       end
     end
 
-    let(:article) { Fabricate(:article, subject: "ddd", description: "") }
     context "should not allow" do
-      it "blank #description" do
+      article = Fabricate.build(:article, subject: "aaaa", description: "")
+      it "blank subject" do
         article.valid?
         expect(article.errors[:description]).to include("can't be blank")
       end
@@ -35,34 +41,34 @@ RSpec.describe Article, type: :model do
   end
 
   describe "Validate for duplication" do
-    let(:article) { Fabricate(:article, subject: "dup", description: "xyz") }
-    let(:article1) { Fabricate(:article, subject: "dup", description: "xyz") }
     context "should not allow" do
-     it "duplicate #subject" do
+    it "duplicate #subject" do
+       Fabricate.build(:article, subject: "abc", description: "xyz")
+       article = Fabricate.build(:article, subject: "abc", description: "xccyz")
        article.valid?
-       expect { article1.errors[:subject] }.to eql('has already been taken')
-     end
+       expect(article.errors[:subject]).to include('has already been taken')
+    end
     end
   end
 
-  describe "Validate subject length" do
-    let(:article) { Fabricate(:article, subject: "xyz"*40, description: "xyz") }
+  describe "Validate length" do
 
-    context "should not allow" do
+    context "subject should not allow" do
+      article = Fabricate.build(:article, subject: "abc"*40, description: "xccyz")
       it "more than 100" do
-        expect { article.count }.to eq(1)
+        article.valid?
+        expect(article.errors[:subject]).to include("is too long (maximum is 100 characters)")
       end
     end
-  end
 
-  describe "Validate description length" do
-    let(:article) { Fabricate(:article, subject: "xyz", description: "xyz"*1000) }
-
-    context "should not allow" do
+    context "description should not allow" do
+      article = Fabricate.build(:article, subject: "abc", description: "xyz"*1000)
       it "more than 2000" do
-        expect { article.count }.to eq(1)
+        article.valid?
+        expect(article.errors[:description]).to include("is too long (maximum is 2000 characters)")
       end
     end
+
   end
 
 end
